@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PATH=${PWD%/code*}/code:$PATH
+
+# Initial image is a 16 pixel wide gradient with (if correct)
+# all 4-bit shades of grey.
+priforgepng -d 4 glr -s 16 |
+  prichunkpng --transparent '#5' - |
+  pipcolours - | pripnglsch |
+  grep IHDR |
+  grep -i -q 00000010000000010804000000

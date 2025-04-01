@@ -1,0 +1,10 @@
+#!/bin/sh
+
+Code=${PWD%/code*}/code
+PATH=$Code:$PATH
+
+# Add an entirely fictitious flOB chunk.
+priforgepng -d 2 glr rbr gtb -s 8 | priweavepng - - - |
+  prichunkpng --chunk flOB "$Code/test/chunk-flob" - |
+  pripnglsch |
+  grep -q flOB

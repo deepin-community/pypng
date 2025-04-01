@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PATH=${PWD%/code*}/code:$PATH
+
+priforgepng -d 2 glr rbr gtb -s 8 | priweavepng - - - |
+  prichunkpng --transparent '#FFFFFF' - |
+  pipcolours - |
+  pripnglsch | grep IHDR |
+  grep -i -q 00000014000000010806000000

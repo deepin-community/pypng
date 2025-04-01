@@ -1,15 +1,35 @@
-Source: template-repository
-Section: unknown
+Source: pypng
+Section: python
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Sascha Steinbiss <satta@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               pybuild-plugin-pyproject,
+               python3-all,
+               python3-setuptools
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/debian/pypng.git
+Vcs-Browser: https://salsa.debian.org/debian/pypng
+Homepage: https://github.com/drj11/pypng
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: python3-png
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends}
+Description: Pure Python PNG Reader/Writer (Python 3)
+ The PyPNG module implements support for PNG images. It reads and writes PNG
+ files with all allowable bit depths (1/2/4/8/16/24/32/48/64 bits per pixel) and
+ colour combinations: greyscale (1/2/4/8/16 bit); RGB, RGBA, LA (greyscale with
+ alpha) with 8/16 bits per channel; colour mapped images (1/2/4/8 bit).
+ Adam7 interlacing is supported for reading and writing. A number of optional
+ chunks can be specified (when writing) and understood (when reading): tRNS,
+ bKGD, gAMA.
+ .
+ PyPNG is not a high level toolkit for image processing (like PIL) and does not
+ aim at being a replacement or competitor. Its strength lies in fine-grained
+ extensive support of PNG features. It can also read and write Netpbm PAM files,
+ with a focus on its use as an intermediate format for implementing custom PNG
+ processing.
+ .
+ This package contains the Python 3 version.

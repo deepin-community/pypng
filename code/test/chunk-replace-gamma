@@ -1,0 +1,14 @@
+#!/bin/sh
+
+PATH=${PWD%code*}code:$PATH
+
+pngnogamma () {
+  priforgepng -d 2 glr rbr gtb -s 8 | priweavepng - - -
+}
+
+# Check no gAMA chunk first, then add one, replace it, and check again
+pngnogamma | pripnglsch | grep -q gAMA && exit 9
+pngnogamma | prichunkpng --gamma 0.45 - |
+  prichunkpng --gamma 1 - |
+  pripnglsch |
+  grep -c gAMA | grep -q '^1$'
