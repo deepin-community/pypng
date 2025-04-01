@@ -1,0 +1,8 @@
+#!/bin/sh
+
+Code=${PWD%/code*}/code
+PATH=$Code:$PATH
+
+priforgepng -d 4 glr -s 16 |
+  prichunkpng --iccprofile "$Code/../asset/snibgoGBR.icc" - |
+  pripnglsch | grep -q iCCP

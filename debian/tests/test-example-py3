@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+import png
+import os.path
+
+png.from_array([[255, 0, 0, 255],
+                [0, 255, 255, 0]], 'L').save("small_smiley.png")
+
+if not os.path.exists("small_smiley.png"):
+    raise("missing file")

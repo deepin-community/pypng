@@ -1,0 +1,13 @@
+#!/bin/sh
+
+PATH=${PWD%/code*}/code:$PATH
+
+pngtrns () {
+  priforgepng -d 2 glr rbr gtb -s 8 | priweavepng - - - |
+  prichunkpng --transparent '#FFF' - 
+}
+
+pngtrns | pripnglsch | grep -q tRNS || exit 9
+pngtrns | prichunkpng --delete tRNS - |
+  pripnglsch | grep -q tRNS && exit 1
+exit 0

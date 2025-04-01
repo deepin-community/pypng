@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PATH=${PWD%code*}code:$PATH
+
+# The @ from C64 (inverted, because of the PBM convention)
+printf 'P4 8 7\n\074\146\156\156\140\142\074' |
+pripamtopng - |
+pripnglsch - |
+grep -q 'IHDR.*000000080000000701000000'

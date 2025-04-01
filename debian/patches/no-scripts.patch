@@ -1,0 +1,35 @@
+Description: do not install executables
+Author: Sascha Steinbiss <satta@debian.org>
+Last-Update: 2022-12-12
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -28,16 +28,16 @@
+ 	= code
+ py_modules =
+     png
+-scripts =
+-    code/prichunkpng
+-    code/pricolpng
+-    code/priditherpng
+-    code/priforgepng
+-    code/prigreypng
+-    code/pripalpng
+-    code/pripamtopng
+-    code/priplan9topng
+-    code/pripnglsch
+-    code/pripngtopam
+-    code/prirowpng
+-    code/priweavepng
++#scripts =
++#    code/prichunkpng
++#    code/pricolpng
++#    code/priditherpng
++#    code/priforgepng
++#    code/prigreypng
++#    code/pripalpng
++#    code/pripamtopng
++#    code/priplan9topng
++#    code/pripnglsch
++#    code/pripngtopam
++#    code/prirowpng
++#    code/priweavepng

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+PATH=${PWD%code*}code:$PATH
+
+priforgepng -d 8 rbr -s 64 |
+  prichunkpng --sigbit 2 - |
+  pripnglsch |
+  grep -q sBIT || exit 1
